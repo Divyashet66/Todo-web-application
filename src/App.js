@@ -6,7 +6,7 @@ import { AddTodo } from "./MyComponents/AddTodo";
 import {About} from "./MyComponents/About";
 import React, {useState,useEffect} from 'react';
 import {
- BrowserRouter,
+ BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
@@ -54,15 +54,15 @@ function App() {
 
   return (
     <>
+      <Router>
       <Header title="MyTodosList" searchBar={false}/>
-      <BrowserRouter>
       <Routes>
         <Route path="/" element={<><AddTodo addTodo={addTodo} />
             <Todos todos={todos} onDelete={onDelete} /> </> }/>
         <Route path="/about" element={<About />} />
       </Routes>
-    </BrowserRouter> 
       <Footer/>
+      </Router>
     </>
   );
 }
